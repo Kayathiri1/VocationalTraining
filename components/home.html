@@ -1,0 +1,124 @@
+<div data-ng-init="carouselslider()">
+    <div id="title">
+        <h2>E-TOKK TECHNICAL TRAINING INSTITUTE</h2>
+    </div>
+
+    <div id="navbar">
+        <nav>
+            <div id="links">
+                <ul>
+                    <li><a href="" ng-click="gotoLogin()">Login</a></li>
+                    <li><a href="" ng-click="register()">Apply Now</a></li>
+                    <li><a href="" ng-click="courses()">Courses</a></li>
+                    <li><a href="" ng-click="news()">News</a></li>
+                    <li><a href="" ng-click="contact()">About Us</a></li>
+                    <div class="search">
+                        <div class="search-box">
+                            <input type="search" ng-model="searchbox" placeholder="Search">
+                        </div>
+
+                        <div class="search-img">
+                            <img src="./img/search.png">
+                        </div>
+                    </div>
+
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+
+    <div id="slides_control">
+            <carousel interval="myInterval">
+                <slide ng-repeat="slide in slides" active="slide.active">
+                    <img class="carousel-image" ng-src="{{slide.image}}">
+                </slide>
+            </carousel>
+    </div>
+    <div class="sec2">
+        <div class="top-links">
+                <h3>Top Links</h3>
+            <ul>
+                <li>
+                    <a href="">Apply Leave</a>
+                </li>
+                <li>
+                    <a href="">Register</a>
+                </li>
+                <li>
+                    <a href="">Calendar</a>
+                </li>
+                <li>
+                    <a href="">Courses</a>
+                </li>
+                <li>
+                    <a href="">Services</a>
+                </li>
+                <li>
+                    <a href="">Upcoming events</a>
+                </li>
+            </ul>
+            <div id="imglink">
+                <a href=""><img src="./img/imglink1.jpg"></a>
+                <p>Full-Time Courses</p>
+                <a href=""><img src="./img/imglink3.jpg"></a>
+                <p>Part-Time Courses</p>
+                <a href=""><img src="./img/imglink2.png"></a>
+                <p>Special Courses</p>
+            </div>
+            <div class="logo">
+                <img src="./img/logo.png" width="300px">
+            </div>
+
+        </div>
+        <div class="para">
+            <h2>Overview</h2>
+            <div class="video">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/VWai5OHgyNE"></iframe>
+                </div>
+            </div>
+            <div class="vision">
+                <h3>Vision</h3>
+                <p>
+                    To become the best Automotive Training Institute in South Asia.
+                </p>
+            </div>
+            <div class="mission">
+                <h3>Mission</h3>
+                <p>
+                    Systematically develop the technology related to Automobile and other technical trades and to provide training to students to be appropriately equipped to perform at the highest level of acceptance and there by maintain the standard as the centre of excellence for training in the Automotive sector of Sri Lanka.
+                </p>
+
+            </div>
+            <div class="overview">
+                <h3>Overview</h3>
+                <p>
+                    The Ceylon-German Technical Training Institute (CGTTI) is the foremost institute in Sri Lanka for the training of skilled technicians in the field of Automobile Engineering and allied trades. The institute was originally established in 1959 at the premises of the central workshops of the Transport Board of Sri Lanka at Werahera. This was a result of an agreement made in 1958 between the government of Federal Republic of Germany and Sri Lanka to supply training assistance in the maintenance of bus fleet, which belonged to the Transport Board of Sri Lanka (then Ceylon Transport Board - CTB).
+
+                    The Institute was shifted to Moratuwa in 1974. It was originally organized and managed by a German director and his German staff till February 29th, 1976. Then its management was handed over to a Sri Lanka, Director/Principal and local staff. The CGTTI was coming under the Ministry of Transport till April 2004. in 2004 this Institute was handed over to the Ministry of Skills Development Vocational and Technical Education. From November 2005 CGTTI was handed over to the Ministry of Skills Development and Public Enterprise Reforms. After that CGTTI was handed over to the Presidential Secretariat. From November 2007 this Institute was handed over to the Ministry of Transport. Presently CGTTI is coming under the Ministry of Youth Affairs and Skills Development.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="bottom">
+        <div id="foot">
+            <div id="footimg">
+                <a href=""><img src="./img/map.jpg"></a>
+            </div>
+            <div id="condetails">
+                <h3>E-TOKK TECHNICAL</h3>
+                <h4>582, Galle Road, Mount Lavinia,
+                    Sri Lanka.</h4>
+                <h4>+94712251841</h4>
+                <h4>etokk@sltnet.lk</h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

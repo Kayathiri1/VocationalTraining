@@ -1,0 +1,80 @@
+.form{
+    font-weight: bold;
+    position:absolute;
+    width:20%;
+    height:450px;
+    box-shadow:5px 4px 43px blue;
+    top:150px;
+    left:600px;
+    border-radius:10px;
+    padding:40px;
+    margin: 100px auto;
+    text-align: left;
+}
+.footer{
+    margin-top: 600px;
+}
+.form #field{
+    margin:-100px auto;
+    text-align:center;
+    color: #03a9f4;
+}
+.form #field .inputbox{
+    margin-top: 10px;
+    position: relative;
+    color: white;
+    background: transparent;
+}
+.form #field .inputbox input{
+    width:100%;
+    outline:none;
+    padding:0px 0px;
+    border:none;
+    border-bottom:1px solid #aaa;
+    font-size:20px;
+    color: white;
+    background:transparent;
+    margin-bottom:25px;
+    margin-top:0px;
+}
+.form #field .inputbox .inputbox label{
+    position:absolute;
+    top:-20px;
+    left:0;
+    font-size:20px;
+    padding: 0px 0px;
+}
+.form #field input[type="submit"]{
+    background:transparent;
+    width: 100%;
+    border:none;
+    outline:none;
+    color:#fff;
+    background: #03a9f4;
+    padding:10px 50px;
+    cursor:pointer;
+    border-radius:5px;
+    margin-top: 10px;
+}
+
+.form #field img{
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+
+}
+.form #field .roles{
+    color: white;
+
+}
+.form #field .roles select{
+    background: transparent;
+    color: white;
+    width: 100%;
+    font-size: 20px;
+    border: none;
+    border-bottom:1px solid #aaa;
+}
+.form #field .roles select option{
+    color: black;
+}

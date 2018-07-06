@@ -1,0 +1,42 @@
+body{
+    background-image: url("../img/bg.jpg");
+    background-size: cover;
+}
+.sec2{
+    position: relative;
+    width: 800px;
+    margin: auto;
+    display: flex;
+    /*box-sizing: border-box;*/
+    /*box-shadow: 5px 4px 43px greenyellow;*/
+}
+.bottom{
+    background-image: url("../img/bottom.jpg");
+    /*background: rgba(0,0,0,0.1);*/
+    position: relative;
+    width: 800px;
+    height: 200px;
+    margin: auto;
+    display: flex;
+    /*box-shadow: 5px 4px 43px greenyellow;*/
+}
+.bottom #foot{
+    width: 800px;
+    height: 200px;
+    margin: auto;
+    background: rgba(0,0,0,0.8);
+    backface-visibility: hidden;
+    display: flex;
+}
+.bottom #foot #condetails{
+    color: white;
+    margin: 10px 10px auto;
+}
+.bottom #foot p{
+    color: white;
+    margin: 10px 10px auto;
+}
+.bottom #foot img{
+    width: 250px;
+    margin: 10px 10px auto;
+}

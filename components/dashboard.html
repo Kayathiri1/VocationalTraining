@@ -1,0 +1,73 @@
+<div>
+    <div id="title">
+        <h2><img src="./img/logo.png">E-TOKK TECHNICAL TRAINING INSTITUTE<img src="./img/logo.png"></h2>
+    </div>
+
+    <div class="tabs">
+        <div id="user">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome {{user}} <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="">Profile</a></li>
+                    <li><a href="">Grades</a></li>
+                    <li><a href="">Settings</a></li>
+                    <li><a href="" ng-click="gotoLogout()">Logout</a></li>
+                </ul>
+            </li>
+        </div>
+        <div class="col-md-2">
+            <ul class="nav nav-pills nav-stacked">
+                <li ng-class="{ active: isSet(1) }">
+                    <a href ng-click="setTab(1)">Home</a>
+                </li>
+                <li ng-class="{ active: isSet(2) }">
+                    <a href ng-click="setTab(2)">Submissions</a>
+                </li>
+                <li ng-class="{ active: isSet(3) }">
+                    <a href ng-click="setTab(3)">Message</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-8">
+            <div class="jumbotron">
+                <div ng-show="isSet(1)">
+                    <h1>Home Page</h1>
+                    <p>Welcome to <img src="./img/logo.png"> Technical Training Institute!</p>
+                    <!--<p> <a class="btn btn-primary btn-lg" role="button">Learn more</a></p>-->
+                </div>
+                <div ng-show="isSet(2)">
+                    <h1>Submissions</h1>
+                    <p>Submit your assignments</p>
+
+                    <div class="form-group">
+                        <label for="exampleInputFile">File upload</label>
+                        <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+                        <small id="fileHelp" class="form-text text-muted">Upload your file here</small>
+                    </div>
+                    <p><a class="btn btn-primary btn-lg" role="button">Upload</a></p>
+                </div>
+                <div ng-show="isSet(3)">
+                    <h1>Messages</h1>
+                    <p>Some messages</p>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="bottom">
+        <div id="foot">
+            <div id="footimg">
+                <a href=""><img src="./img/map.jpg"></a>
+            </div>
+            <div id="condetails">
+                <h3>E-TOKK TECHNICAL</h3>
+                <h4>582, Galle Road, Mount Lavinia,
+                    Sri Lanka.</h4>
+                <h4>+94712251841</h4>
+                <h4>etokk@sltnet.lk</h4>
+            </div>
+        </div>
+    </div>
+
+</div>

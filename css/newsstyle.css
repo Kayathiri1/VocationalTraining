@@ -1,0 +1,121 @@
+.sec2 .left{
+    width: 50%;
+    height: 100%;
+    color: white;
+    /*box-shadow:5px 4px 43px blue;*/
+
+}
+.sec2 .right{
+    width: 50%;
+    color: white;
+    border: blue;
+
+}
+.sec2 .left .news1{
+    font-weight: bold;
+    position:relative;
+    width:80%;
+    height: 385px;
+    background:rgba(0,0,0,0.1);
+    box-shadow:5px 4px 43px blue;
+    border-radius:10px;
+    padding:0px;
+    margin: 20px auto 40px auto;
+    text-align: left;
+}
+
+.sec2 .left .news2{
+    font-weight: bold;
+    position:relative;
+    width:80%;
+    height: 385px;
+    background:rgba(0,0,0,0.1);
+    box-shadow:5px 4px 43px blue;
+    border-radius:10px;
+    padding:0px;
+    margin: auto auto 40px auto;
+    text-align: left;
+}
+.sec2 .left .news3{
+    font-weight: bold;
+    position:relative;
+    width:80%;
+    height: 385px;
+    background:rgba(0,0,0,0.1);
+    box-shadow:5px 4px 43px blue;
+    border-radius:10px;
+    padding:0px;
+    margin: auto auto 40px auto;
+    text-align: left;
+}
+.sec2 .right .news4{
+    font-weight: bold;
+    position:relative;
+    width:80%;
+    height: 385px;
+    background:rgba(0,0,0,0.1);
+    box-shadow:5px 4px 43px blue;
+    border-radius:10px;
+    padding:0px;
+    margin: 20px auto 40px auto;
+    text-align: left;
+}
+.sec2 .right .news5{
+    font-weight: bold;
+    position:relative;
+    width:80%;
+    height: 385px;
+    background:rgba(0,0,0,0.1);
+    box-shadow:5px 4px 43px blue;
+    border-radius:10px;
+    padding:0px;
+    margin: 20px auto 40px auto;
+    text-align: left;
+}
+.sec2 .right .news6{
+    font-weight: bold;
+    position:relative;
+    width:80%;
+    height: 385px;
+    background:rgba(0,0,0,0.1);
+    box-shadow:5px 4px 43px blue;
+    border-radius:10px;
+    padding:0px;
+    margin: 20px auto 40px auto;
+    text-align: left;
+}
+.sec2 .left .news1 img{
+    height: 200px;
+    width: 100%;
+    border-radius: 10px;
+}
+.sec2 .left .news2 img{
+    height: 200px;
+    width: 100%;
+    border-radius: 10px;
+}
+.sec2 .left .news3 img{
+    height: 200px;
+    width: 100%;
+    border-radius: 10px;
+}
+.sec2 .right .news4 img{
+    height: 200px;
+    width: 100%;
+    border-radius: 10px;
+}
+.sec2 .right .news5 img{
+    height: 200px;
+    width: 100%;
+    border-radius: 10px;
+}
+.sec2 .right .news6 img{
+    height: 200px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.sec2 h4{
+    text-decoration: underline;
+    color: gold;
+}

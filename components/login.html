@@ -1,0 +1,52 @@
+<div>
+    <div id="title">
+        <h2><img src="./img/logo.png">E-TOKK TECHNICAL TRAINING INSTITUTE<img src="./img/logo.png"></h2>
+    </div>
+
+    <form ng-submit="login()">
+        <div class="form">
+            <div id="field">
+                <img src="./img/login.png">
+                <div class="roles" data-ng-init="rolelist()">
+                    <label>Account Type</label>
+                    <select ng-model="selected_person" ng-options="person.name for person in people" required="required">
+                        <option value="">Select Type</option>
+                    </select>
+                </div>
+                <div class="inputbox">
+                    <label for="uname">USERNAME</label>
+                    <input type="text" ng-model="username" placeholder="Username" id="uname" required="required">
+                </div>
+                <div class="inputbox">
+                    <label for="pass">PASSWORD</label>
+                    <input type="password" ng-model="password" placeholder="Password" id="pass" required="required">
+                </div>
+
+                <input type="submit" ng-click="login()" value="Login"></input>
+                <input type="checkbox">Remember me</input>
+                <br>
+                <a href="" ng-click="resetpass()">Forgot password?</a>
+
+            </div>
+
+        </div>
+    </form>
+
+    <div class="footer">
+        <div class="bottom">
+            <div id="foot">
+                <div id="footimg">
+                    <a href=""><img src="./img/map.jpg"></a>
+                </div>
+                <div id="condetails">
+                    <h3>E-TOKK TECHNICAL</h3>
+                    <h4>582, Galle Road, Mount Lavinia,
+                        Sri Lanka.</h4>
+                    <h4>+94712251841</h4>
+                    <h4>etokk@sltnet.lk</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

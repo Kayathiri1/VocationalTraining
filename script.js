@@ -50,6 +50,9 @@ app.config(function($routeProvider){
     }).when('/register',{
         templateUrl: './components/register.html',
         controller: 'regCtrl'
+    }).when('/results',{
+        templateUrl: './components/results.html',
+        controller: 'resultsCtrl'
     }).when('/course',{
         templateUrl: './components/courses.html',
         controller: 'courseCtrl'
@@ -183,6 +186,9 @@ app.controller('dashboardCtrl', function($scope, $location, user, $http){
 
     $scope.gotoLogout = function(){
         $location.path('/logout');
+    };
+    $scope.gotoResults = function(){
+        $location.path('/results');
     };
     $scope.tab = 1;
 

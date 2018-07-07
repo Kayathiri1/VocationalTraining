@@ -45,7 +45,7 @@ if(isset($_POST['submit'])){
         // $query3="UPDATE users SET user_image = '$user_image' WHERE user_id = '$user_id'";
         }
 
-    $query = " INSERT INTO `current_students` (username, user_firstname, user_lastname, user_password, user_role, user_image, date_created) VALUES ( '$username', '$user_firstname', ' $user_lastname', '$md5pass', '$user_role','$user_image' ,'$date_created') ";
+    $query = " INSERT INTO `current_students` (username, user_firstname, user_lastname, user_password, user_role, user_image, date_created) VALUES ( '$username', '$user_firstname', ' $user_lastname', '$user_password', '$user_role','$user_image' ,'$date_created') ";
 
     $connection = mysqli_connect('localhost', 'root', '', 'vocational training institute');
 

@@ -12,7 +12,7 @@ $con = mysqli_connect('localhost', 'root', '', 'vocational training institute');
 
 $username = mysqli_real_escape_string($con, $_POST['username']);
 $password = mysqli_real_escape_string($con, $_POST['password']);
-$md5pass = mdm5($password);
+$md5pass = md5($password);
 $table = mysqli_real_escape_string($con, $_POST['type']);
 
 if($table=="Student"){

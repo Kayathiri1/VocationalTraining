@@ -25,6 +25,17 @@ app.config(function($routeProvider) {
         },
         templateUrl: './components/dashboard.html',
         controller: 'dashboardCtrl'
+    }).when('/admindashboard', {
+        resolve: {
+            check: function($location, user) {
+                if (!user.isUserLoggedIn()) {
+                    $location.path('/login');
+                }
+
+            },
+        },
+        templateUrl: './cms/admin/index.php',
+        controller: 'dashboardCtrl'
     }).when('/lec_dashboard', {
         resolve: {
             check: function($location, user) {
@@ -34,7 +45,7 @@ app.config(function($routeProvider) {
 
             },
         },
-        templateUrl: './components/dashboard.html',
+        templateUrl: './components/Lecdashboard.html',
         controller: 'dashboardCtrl'
     }).when('/HOD', {
         resolve: {
@@ -152,7 +163,7 @@ app.controller('loginCtrl', function($scope, $http, $location, user) {
         var username = $scope.username;
         var password = $scope.password;
         $http({
-            url: 'http://localhost/VT/server.php',
+            url: 'http://localhost/Sem3_project/server.php',
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -161,8 +172,9 @@ app.controller('loginCtrl', function($scope, $http, $location, user) {
         }).then(function(response) {
             if (response.data.status == 'loggedin') {
                 user.saveData(response.data);
-                if (response.data.Type == 'student') {
-                    $location.path('/dashboard');
+                // alert(response.data.Type);
+                if (response.data.Type == 'admin') {
+                    $location.path('/admindashboard');
                 } else if (response.data.Type == 'lecturer') {
                     $location.path('/lec_dashboard');
                 } else if (response.data.Type == 'HOD') {

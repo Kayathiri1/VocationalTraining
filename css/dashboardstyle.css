@@ -26,7 +26,7 @@
 .tabs ul li a:hover{
     background: #6c6c6c;
     border-radius: 25px;
- }
+}
 .tabs{
     width: 50%;
     position: relative;
@@ -41,4 +41,16 @@
     margin-bottom: 50px;
     font-size: medium;
     font-weight: bold;
+}
+.tabs .col-md-8 .jumbotron .module .mod{
+    background: black;
+    border-radius: 25px;
+    border-bottom: black;
+
+}
+.tabs .col-md-8 .jumbotron .module .mod p{
+    margin-left: 20px;
+}
+.tabs .col-md-8 .jumbotron table{
+    color: #2b542c;
 }

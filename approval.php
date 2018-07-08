@@ -1,18 +1,18 @@
 <?php
-header("Access-Control-Allow-Origin: *");
-header("Content-Type: application/json; charset=UTF-8");
-$connect = mysqli_connect("localhost", "root", "", "vocational training institute");
 
-$result = $connection->query("SELECT uname,approval FROM leave_table");
+$conn = mysqli_connect("localhost", "root", "", "vocational training institute");
+$ouput = array();
+$query = "SELECT * FROM leave_table";
+$result = mysqli_query($conn, $query);
+if(mysqli_num_rows($result)>0)
+{
+    while($row = mysqli_fetch_array($result))
+    {
+        $output[] = $row;
+    }
 
-$outp = "";
-while($rs = $result->fetch_array(MYSQLI_ASSOC)){
-    if($outp != "") {$outp .=",";}
-    $outp .= '{"Uname":"' .$rs["uname"] . '",';
-    $outp .= '"Approval":"' .$rs["approval"] . '"}';
+
+    echo json_encode($output);
 }
-$outp = '{"records":['.$outp.']}';
-$connect->close();
- echo($outp);
 
 ?>

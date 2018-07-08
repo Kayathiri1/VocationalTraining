@@ -8,7 +8,7 @@
 .conto{
 	width: 50%;
 	height: 200px;
-	color: white;
+	color: black;
 	padding: 1% 1%;
 	border-radius: 5px;
 
@@ -23,6 +23,5 @@
 	width: 200px;
 	height: 30px;
 	border-radius: 5px;
-
 }
 

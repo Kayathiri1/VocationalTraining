@@ -32,33 +32,32 @@ $users="active";?>
                         <?php 
 
                         if(isset($_POST['update_user'])){
-                          echo "rntoie";
+                          
                         }
 
 
 
                         if (isset($_GET['delete'])) {
                             $del_user=$_GET['delete'];
-                            $query1= "DELETE FROM users WHERE username ='$del_user'";
-                            $delete_post=mysqli_query($connection_d, $query1);
+                            $query1= "DELETE FROM users WHERE user_id ={$del_user}";
+                            $delete_post=mysqli_query($connection, $query1);
 
-
-                           // header("Location: users.php");
+                            header("Location: users.php");
                         }
                         
 
                         else if (isset($_GET['Edit'])) {
                             $user_id=$_GET['Edit'];
-                            $query2 = "SELECT * FROM users WHERE username ='$user_id'";
+                            $query2 = "SELECT * FROM users WHERE user_id ={$user_id}";
                             $edit_user=mysqli_query($connection, $query2);
                             
                             edit_user($edit_user);
 
                              }
 
-                     
+                        else{
                           show_user_table(); 
-                         
+                         }
                           ?>
 
                     </div>

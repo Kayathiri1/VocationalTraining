@@ -2,7 +2,7 @@
     font-weight: bold;
     position:absolute;
     width:20%;
-    height:450px;
+    height:400px;
     box-shadow:5px 4px 43px blue;
     top:150px;
     left:600px;
@@ -62,19 +62,4 @@
     height: 150px;
     margin-bottom: 20px;
 
-}
-.form #field .roles{
-    color: white;
-
-}
-.form #field .roles select{
-    background: transparent;
-    color: white;
-    width: 100%;
-    font-size: 20px;
-    border: none;
-    border-bottom:1px solid #aaa;
-}
-.form #field .roles select option{
-    color: black;
 }

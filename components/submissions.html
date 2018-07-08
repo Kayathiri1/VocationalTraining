@@ -2,12 +2,19 @@
     <div id="title">
         <h2><img src="./img/logo.png">E-TOKK TECHNICAL TRAINING INSTITUTE<img src="./img/logo.png"></h2>
     </div>
-    <div id="details">
-            <div class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/UYdRa2LsVHA"></iframe>
-            </div>
+    <div id="submit">
+        <h1>Submissions</h1>
+        <p>Submit your assignments</p>
 
+        <div class="form-group">
+            <label for="exampleInputFile">File upload</label>
+            <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp"
+            ng-model="files" multiple/>
+            <small id="fileHelp" class="form-text text-muted">Upload your file here</small>
+        </div>
+        <p><a class="btn btn-primary btn-lg" role="button" ng-click="upload()">Upload</a></p>
     </div>
+
     <div class="bottom">
         <div id="foot">
             <div id="footimg">

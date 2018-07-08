@@ -1,9 +1,8 @@
 <?php
-$comments="";
-$posts="";
 $dashboard="";
+$Applicants="";
 $users="";
 $profile="";
-$categories="";
+$Modules="";
 
 ?>

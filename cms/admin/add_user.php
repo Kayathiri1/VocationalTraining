@@ -1,8 +1,8 @@
 <?php include "includes/header.php";?>
 
 <?php include "includes/Top_navbar.php";?>
-<?php include "includes/side_navbar_activity.php";?>
-<?php $users="active";?>
+<?php include "includes/side_navbar_activity.php";
+$users="active";?>
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
 
 <?php include "includes/side_navbar.php";?>
@@ -18,7 +18,6 @@ date_default_timezone_set("Asia/Colombo");
  <div id="page-wrapper">
 
             <div class="container-fluid">
-
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
@@ -28,32 +27,35 @@ date_default_timezone_set("Asia/Colombo");
 if(isset($_POST['submit'])){
 
 
-    
-    $username=$_POST['username'];
-    $user_firstname=$_POST['user_firstname'];
-    $user_lastname=$_POST['user_lastname'];                                        
-    $user_password=$_POST['user_password'];
-    $md5pass = md5($user_password);
-    $user_image= "images/user_images/default.jpg"; 
-    $user_role=$_POST['user_role'];  
-    $date_created=date("Y-m-d");                                    
+    $query = "SELECT * FROM applicants WHERE Approval='approved' AND account_created='no'";
+    $approved_users=mysqli_query($connection_d,$query);  
 
+    if(!$approved_users){
+        echo mysqli_error($connection_d); 
+    }  
 
-    if (isset($_FILES["file_source"]["name"]) && $_FILES['file_source']['size'] > 0) {
-        save_user_image();      
-        $user_image= "images/user_images/".$image; 
-        // $query3="UPDATE users SET user_image = '$user_image' WHERE user_id = '$user_id'";
-        }
+    while($row=mysqli_fetch_assoc($approved_users)){
+        $full_name=$row['fname'];
+        $password='E-TOKK/2018';
+        $img='images/default.jpg';
+        $id=$row['id'];
+       
+       
+       $query2="INSERT INTO students (full_name,password,user_img) VALUES ('$full_name', '$password','$img')";
+       $create_user=mysqli_query($connection_d, $query2);  
 
-    $query = " INSERT INTO `current_students` (username, user_firstname, user_lastname, user_password, user_role, user_image, date_created) VALUES ( '$username', '$user_firstname', ' $user_lastname', '$user_password', '$user_role','$user_image' ,'$date_created') ";
+       $yes='yes';
 
-    $connection = mysqli_connect('localhost', 'root', '', 'vocational training institute');
+       if($create_user){
+            $query="UPDATE applicants SET  account_created='$yes' WHERE id = '$id'";
+            $update=mysqli_query($connection_d,$query);  
+       }
 
-    mysqli_query($connection, $query);
+    }
 
-    
+    echo "<h3>Accounts created!</h3>";    
  
-
+   // header("Location: users.php");
     
 }
 ?>
@@ -68,48 +70,20 @@ if(isset($_POST['submit'])){
                                 <div class="col-lg-12">
                              <form action="add_user.php" method="post" enctype="multipart/form-data">
                                 
-                               <div class="form-group">
-                                <label for="user_firstname">Firstname</label>
-                                 <input type='text' name='user_firstname' class='form-control title' value='' > </div>
-
-                                 <div class="form-group">
-                                <label for="user_lastname">Lastname</label>
-                                 <input type='text' name='user_lastname' class='form-control title' value='' > </div>   
-                                 <div class="form-group">
-                                <label for="username">User name</label>
-                                 <input type='text' name='username' class='form-control title' value='' > </div>                                 
-                              
-                                
-                                <div style="position:relative;">
-                                        <a class='btn btn-primary' href='javascript:;'>
-                                            Choose profile picture...
-                                            <input type="file" accept="image/*" name="file_source" id="file_source"  style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;' size="40"  onchange='$("#upload-file-info").html($(this).val());'>
-                                        </a>
-                                        &nbsp;
-                                        <span class='label label-info' id="upload-file-info"></span>
-                                </div>
-
                              
-                             <br>
-                                <div class="form-group">
-                                <label for="user_password">Password</label>
-                                 <input type='password' name='user_password' class='form-control title' value='' ></div> 
-
-                                  <div class="form-group">
-                                <label for="user_role">Role</label>
-                                <select id="select category"  class="form-control sel " name="user_role">
-                                        <option>admin</option>
-                                        <option>Subscriber</option>
-                                 </select>
-                                 </div> 
                                 
                               <div class="form-group">
-                                <input type="submit" name="submit" class="btn btn-success" style="margin-bottom: 50px" value="Create the user"></div>
+                                <input type="submit" name="submit" class="btn btn-success btn-md" style="margin-bottom: 50px" value="Create user accounts for Approved Applicants"></div>
                                 
 
                              </form>
 
                          </div>
+<?php
+                         show_applicants_table();?>
+
+
+
                      </div>
                     </div>
                 </div>

@@ -1,17 +1,61 @@
+<?php //include "includes/db.php";?>
+<?php include "includes/dbb.php";?>
 
-	<h1 class="page-header">Users<small>admin</small></h1>
+<?php
+
+$connection=$connection_d;
+function connect($query){
+    global $connection;
+    $result=mysqli_query($connection, $query);
+
+    if (!$result) {
+        echo mysqli_error($connection);
+    }
+}
+function save_user_image(){
+    $target_dir = "../images/user_images/";
+    $target_file = $target_dir . basename($_FILES["file_source"]["name"]);
+    global $image;
+    $image= basename($_FILES["file_source"]["name"]);
+    $uploadOk = 1;
+
+
+    // Check if file already exists
+    if (file_exists($target_file)) {
+        $uploadOk = 0;
+    }
+    // Check file size
+    if ($_FILES["file_source"]["size"] > 500000) {
+        echo "your file is too large.";
+        $uploadOk = 0;
+    }
+
+    if ($uploadOk == 0) {
+        
+    // if everything is ok, try to upload file
+    } else {
+        if (move_uploaded_file($_FILES["file_source"]["tmp_name"], $target_file)) {
+            // echo "The file ". basename( $_FILES["file_source"]["name"]). " has been uploaded.";
+        } 
+        }
+    }
+
+
+function show_user_table(){
+	?>
+
+	<h1 class="page-header">
+                            Users
+                            <small>admin</small>
+                        </h1>
 	<table class="table table-bordered table-hover">
                             <thead>
-                                <th>ID</th>
                                 <th>Username</th>
-                                <th>Firstname</th>
-                                <th>Lastname</th>
+                                
+                                <th>password</th>
+                                
+                                 <th>type</th>
                                
-                                <th>Password</th>
-                                <th>Role</th>
-                                 <th>image</th>
-                                <th>Admin</th>
-                                <th>Subscriber</th>
                                 <th>Delete</th>
                                 <th>Edit</th>
 
@@ -19,38 +63,34 @@
                             <tbody>
 
                                 <?php
-                                	$connection = mysqli_connect('localhost', 'root', '', 'vocational training institute');
-                                    $query="SELECT * FROM `current_students`";
-                                    $show_all_users=mysqli_query($connection, $query);
+                                	global $connection_d;
+                                    $query="SELECT * FROM users";
+                                    $show_all_users=mysqli_query($connection_d, $query);
 
                                     if(!$show_all_users){
-                                        echo "error".mysqli_error($connection);
+                                        echo "error".mysqli_error($connection_d);
                                     }
                                     while ($row=mysqli_fetch_assoc($show_all_users)) {
-                                        $user_id=$row['user_id'];
+                                       // $user_id=$row['index_no'];
                                         $username=$row['username'];
-                                        $user_firstname=$row['user_firstname'];
-                                        $user_lastname=$row['user_lastname'];                                        
-                                        $user_password=$row['user_password'];
-                                        $user_role=$row['user_role'];
-                                        $user_image=$row['user_image'];
-                                        $user_image="../".$user_image;
+                                                                         
+                                        $user_password=$row['password'];
+                                        
+                                        $user_type=$row['type'];
+                                       // $user_image="../".$user_image;
 
-                                        $admin='admin';
-                                         $Subscriber='subscriber';
+                                        // $admin='admin';
+                                        //  $Subscriber='subscriber';
                                         echo " <tr>
-                                                    <td>$user_id</td>
+                                                    
                                                     <td>$username</td>
-                                                    <td>$user_firstname</td>
-                                                    <td>$user_lastname</td>
+                                                   
                                                      <td> $user_password</td>
-                                                    <td> $user_role</td>
-                                                    <td><img class=picsize src='{$user_image}'></td>
-
-                                                    <td ><a class='ed_del' href='users.php?Role={$admin}&id={$user_id}'>Admin</a></td>
-                                                    <td ><a class='ed_del' href='users.php?Role={$Subscriber}&id={$user_id}'>Subscriber</a></td>
-                                                    <td ><a class='ed_del' href='users.php?delete={$user_id}'> <i class='fa fa-trash'> Delete</i></a></td>
-                                                    <td ><a class='ed_del' href='users.php?Edit={$user_id}'><i class='fa fa-pencil'> Edit</i></a></td>
+                                                     <td> $user_type</td>
+                                                   
+                                                  
+                                                    <td ><a class='ed_del' href='users.php?delete={$username}'> <i class='fa fa-trash'> Delete</i></a></td>
+                                                    <td ><a class='ed_del' href='users.php?Edit={$username}'><i class='fa fa-pencil'> Edit</i></a></td>
 
 
                                                 </tr>";
@@ -63,75 +103,34 @@
                         <?php
 
 
+}
 
 function edit_user($edit_user){
-
-
+      global $connection_d;
+      $connection=$connection_d;
       while ($row=mysqli_fetch_assoc($edit_user)) {
-                                        $user_id=$row['user_id'];
+                                       
                                         $username=$row['username'];
-                                        $user_firstname=$row['user_firstname'];
-                                        $user_lastname=$row['user_lastname'];                                     
-                                        $user_password=$row['user_password'];
-                                        $user_role=$row['user_role'];
-                                        $user_image=$row['user_image'];
-                                        // $user_image="../".$user_image;
+                                                                         
+                                        $user_password=$row['password'];
+                                      
                                     }
                                     ?>
 
                                      <h1 class="page-header">
-                            Edit user
+                                     </br>
+                            Edit user:
                             <small><?php echo $username ?></small>
                         </h1>
 
-                            <div class="row">
+                            
                                 <div class="col-lg-12">
-                             <?php echo "<form action='users.php?Edit_id={$user_id}' method='post' enctype='multipart/form-data'>" ?>
+                             <?php echo "<form action='users.php?Edit_pass=$username' method='post' enctype='multipart/form-data'>" ?>
                                 
                                <div class="form-group">
-                                <label for="user_firstname">Firstname</label>
-                                 <input type='text' name='user_firstname' class='form-control title' value=<?php echo $user_firstname?> > </div>
+                                <label for="password">New password</label>
+                                 <input type='text' name='user_password' class='form-control title' value=<?php echo $user_password?> > </div>
 
-                                 <div class="form-group">
-                                <label for="user_lastname">Lastname</label>
-                                 <input type='text' name='user_lastname' class='form-control title' value=<?php echo $user_lastname?> > </div>   
-                                 <div class="form-group">
-                                <label for="username">User name</label>
-                                 <input type='text' name='username' class='form-control title' value=<?php echo $username?> > </div>                                 
-                              
-                                
-                                <div style="position:relative;">
-                                        <a class='btn btn-primary' href='javascript:;'>
-                                            Choose profile picture...
-                                            <input type="file" accept="image/*" name="file_source" id="file_source"  style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;' size="40"  onchange='$("#upload-file-info").html($(this).val());'>
-                                        </a>
-                                        &nbsp;
-                                        <span class='label label-info' id="upload-file-info"><?php echo '../'.$user_image?></span>
-                                </div>
-
-                             
-                             <br>
-                                <div class="form-group">
-                                <label for="user_password">Password</label>
-                                 <input type='password' name='user_password' class='form-control title' value=<?php echo $user_password?> ></div> 
-
-                                  <div class="form-group">
-                                <label for="user_role">Role</label>
-                                <select id="select category"  class="form-control sel " name="user_role">
-                                    <option><?php echo $user_role?></option>
-                                       <?php 
-                                       $roles=array('admin','subscriber');
-                                       foreach ($roles as $role) {
-                                          if($role!=$user_role){
-                                            echo "<option>$role</option>";
-                                          }
-                                        }
-
-                                       ?>
-                                       
-                                 </select>
-                                 </div> 
-                                
                               <div class="form-group">
                                 <input type="submit" name="update_user" class="btn btn-success" style="margin-bottom: 50px" value="Update the user"></div>
                                 
@@ -140,3 +139,83 @@ function edit_user($edit_user){
 
                             
 <?php }
+
+function show_applicants_table(){
+  ?>
+
+  <h1 class="page-header">
+                            Applicants
+                            <small></small>
+                        </h1>
+  <table class="table table-bordered table-hover">
+                            <thead>
+                                <th>ID</th>
+                                <th>fname</th>                                
+                                
+                                 <th>maths</th>
+                                 <th>science</th>
+                                 <th>english</th>
+                                 <th>email</th>
+                                 <th>Approval</th>
+                               
+                               
+                                <th>Account_created</th>
+                                <th>Delete</th>
+                                <th>Edit</th>
+
+                            </thead>
+                            <tbody>
+
+                                <?php
+                                  global $connection_d;
+                                    $query="SELECT * FROM applicants";
+                                    $show_all_applicants=mysqli_query($connection_d, $query);
+
+                                    if(!$show_all_applicants){
+                                        echo "error".mysqli_error($connection);
+                                    }
+                                    while ($row=mysqli_fetch_assoc($show_all_applicants)) {
+                                        $user_id=$row['id'];
+                                        $username=$row['fname'];
+                                        $maths=$row['maths'];
+                                        $science=$row['science'];                                                   
+                                        $english=$row['english'];                                     
+                                        
+                                        $user_email=$row['email'];
+                                        $user_approval=$row['Approval'];
+                                        $Account_created=$row['account_created'];
+
+                                        // $admin='admin';
+                                        //  $Subscriber='subscriber';
+                                        if($user_approval=='approved'){
+                                            $approval='Unapprove';}
+                                        else{
+                                            $approval='Approve';}
+                                        
+                                        echo " <tr>
+                                                    <td>$user_id</td>
+                                                    <td>$username</td>
+                                                    <td>$maths</td>
+                                                    <td>$science</td>
+                                                    <td>$english</td>
+                                                    <td>$user_email</td>
+                                                    <td>$user_approval</td>
+                                                    <td>$Account_created</td>
+                                                    
+                                                   
+
+                                                   
+                                                    <td ><a class='ed_del' href='add_user.php?delete={$user_id}'> <i class='fa fa-trash'> Delete</i></a></td>
+                                                    <td><a class='ed_del' href='add_user.php?Approval={$user_id}'><i class='fa fa-pencil'>$approval</i></a></td>
+
+                                                </tr>";
+
+                                    }
+                                ?>
+                            </tbody>
+                            
+                        </table>
+                        <?php
+
+
+}

@@ -1,3 +1,25 @@
+<?php ob_start();
+session_start();
+date_default_timezone_set("Asia/Colombo");
+
+// if (isset($_SESSION['role'])) {
+//    if (($_SESSION['role']!='Admin'))
+// {
+//     header("Location: ../index.php");
+//     }
+
+// }
+
+
+// else{
+//    header("Location: ../index.php");
+// }
+
+
+
+?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,6 +33,7 @@
     <meta name="author" content="">
 
     <title>SB Admin - Bootstrap Admin Template</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -19,7 +42,7 @@
     <link href="css/sb-admin.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="./cms/admin/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

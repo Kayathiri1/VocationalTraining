@@ -7,18 +7,9 @@
                     
                      <?php  
                    echo "<li class='{$Applicants}'>"?>
-                    <a href="add_applicant.php" style='color: #42fff8'><i class="fa fa-user"></i> Applicants</a>
+                    <a href="cms/admin/add_applicant.php" style='color: #42fff8'><i class="fa fa-user"></i> Applicants</a>
                     </li>
-                       <!--  <a href="javascript:;" data-toggle="collapse" data-target="#demo_post"><i class="fa fa-fw fa-arrows-v"></i> Applicants <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo_post" class="collapse">
-                            <li>
-                                <a href="applicants.php">View all Applicants</a>
-                            </li>
-                            <li>
-                                <a href="add_applicant.php">Approve Applicant</a>
-                            </li>
-                        </ul>
-                    </li> -->
+                    
                    <?php  
                    echo "<li class='{$Modules}'>"?>
                         <a href="category.php" style='color: #42fff8'><i class="fa fa-fw fa-wrench"></i> Modules</a>
@@ -27,17 +18,23 @@
                     <?php  
                   
                      
-                   echo "<li class='{$users}'>"?>
-                        <a href="#" data-toggle="collapse" data-target="#demo_user" style='color: #42fff8'><i class="fa fa-fw fa-arrows-v"></i> Users <i class="fa fa-fw fa-caret-down"></i></a>
+                   //echo "<li class='{$users}'>"?>
+                     <!--   <a href="#" data-toggle="collapse" data-target="#demo_user" style='color: #42fff8'><i class="fa fa-fw fa-arrows-v"></i> Users <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo_user" class="collapse">
                             <li>
-                                <a href="users.php">View all users</a>
+                                <a href="/cms/admin/users.php">View all bhvivyusers</a>
                             </li>
                             <li>
-                                <a href="add_user.php">Add user123</a>
+                                <a href="/cms/admin/add_user.php">Add user123</a>
                             </li>
                         </ul>
+                    </li>-->
+
+                    <?php echo "<li class='{$users}'>"?>
+                    <a href="cms/admin/users.php" style='color: #42fff8'><i class="fa fa-user"></i> Users</a>
                     </li>
+                    
+
                      <?php  
                    echo "<li class='{$profile}'>"?>
                         <a href="Profile.html" style='color: #42fff8'><i class="fa fa-user"></i> Profile</a>

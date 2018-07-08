@@ -1,0 +1,22 @@
+<div ng-init="getdata()">
+    <table class="table table-bordered" >
+        <tr>
+            <th>User ID</th>
+            <th>Type of Leave</th>
+            <th>Number of Leave Days</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Reason</th>
+            <th>Approval</th>
+        </tr>
+        <tr ng-repeat="x in names">
+            <td>{{x.uname}}</td>
+            <td>{{x.type}}</td>
+            <td>{{x.num_day}}</td>
+            <td>{{x.from_date}}</td>
+            <td>{{x.to_date}}</td>
+            <td>{{x.comment}}</td>
+            <td>{{x.approval}}</td>
+        </tr>
+    </table>
+</div>

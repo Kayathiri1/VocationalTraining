@@ -7,24 +7,17 @@
         <div class="form">
             <div id="field">
                 <img src="./img/login.png">
-                <div class="roles" data-ng-init="rolelist()">
-                    <label>Account Type</label>
-                    <select ng-model="selected_person" ng-options="person.name for person in people" required="required">
-                        <option value="">Select Type</option>
-                    </select>
-                </div>
                 <div class="inputbox">
                     <label for="uname">USERNAME</label>
-                    <input type="text" ng-model="username" placeholder="Username" id="uname" required="required">
+                    <input type="text" ng-model="username" placeholder="Username" id="uname">
                 </div>
                 <div class="inputbox">
                     <label for="pass">PASSWORD</label>
-                    <input type="password" ng-model="password" placeholder="Password" id="pass" required="required">
+                    <input type="password" ng-model="password" placeholder="Password" id="pass">
                 </div>
 
                 <input type="submit" ng-click="login()" value="Login"></input>
                 <input type="checkbox">Remember me</input>
-                <br>
                 <a href="" ng-click="resetpass()">Forgot password?</a>
 
             </div>

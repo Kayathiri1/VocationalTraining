@@ -80,7 +80,7 @@
                         <span id="mmax" style="color:red"></span> <br>
 
                         <b>Deadline:</b> <br>
-                        <input type="date" name="deadline" class="form-control" style="width: 500px" required > <br>
+                        <input required type="date" id="deadline" name="deadline" class="form-control" style="width: 500px"  min="2018-07-11" max="2018-12-12"> <br>
                        </br>
                         <button type="submit" name="create" class="signupbtn btn btn-primary">Create</button></br>
              
@@ -91,6 +91,7 @@
 
                         
                     </div>
+
 
                 </div>
             </div>

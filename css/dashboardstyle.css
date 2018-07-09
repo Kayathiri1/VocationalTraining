@@ -1,4 +1,4 @@
-.tabs #user{
+.tabs #user {
     color: lightblue;
     font-size: large;
     float: right;
@@ -6,51 +6,71 @@
     font-weight: bolder;
     list-style: none;
 }
-.tabs #user li ul{
-    background: rgba(255,255,255,0.3);
+
+.tabs #user li ul {
+    background: rgba(255, 255, 255, 0.3);
 }
-.tabs #user li ul li a{
+
+.tabs #user li ul li a {
     color: white;
 }
-.tabs #user li ul li a:hover{
-    background: rgba(90,0,150,0.3);
+
+.tabs #user li ul li a:hover {
+    background: rgba(90, 0, 150, 0.3);
 }
-.tabs h1, p, a{
+
+.tabs h1,
+p,
+a {
     color: #4DC9C9 !important;
 }
-.nav-pills> li.active > a, .btn-primary{
+
+.nav-pills>li.active>a,
+.btn-primary {
     background-color: #6c6c6c !important;
     border-color: #6c6c6c !important;
     border-radius: 25px;
 }
-.tabs ul li a:hover{
+
+.tabs ul li a:hover {
     background: #6c6c6c;
     border-radius: 25px;
 }
-.tabs{
+
+.tabs {
     width: 50%;
     position: relative;
     margin: auto auto auto auto;
 }
-.tabs .col-md-8{
+
+.tabs .col-md-8 {
     width: 100%;
 }
-.tabs .col-md-2 ul{
+
+.tabs .col-md-2 ul {
     display: flex;
     margin-top: 50px;
     margin-bottom: 50px;
     font-size: medium;
     font-weight: bold;
 }
-.tabs .col-md-8 .jumbotron .module .mod{
+
+.tabs .col-md-8 .jumbotron .module .mod {
     background: black;
     border-radius: 25px;
     border-bottom: black;
-
 }
-.tabs .col-md-8 .jumbotron .module .mod p{
+
+.tabs .col-md-8 .jumbotron .module .mod p {
     margin-left: 20px;
 }
-.tabs .col-md-8 .jumbotron table{
+
+.tabs .col-md-8 .jumbotron table {
     color: #2b542c;
+}
+
+.divider {
+    width: 5px;
+    height: auto;
+    display: inline-block;
 }

@@ -1,22 +1,141 @@
-<div ng-init="getdata()">
-    <table class="table table-bordered" >
-        <tr>
-            <th>User ID</th>
-            <th>Type of Leave</th>
-            <th>Number of Leave Days</th>
-            <th>From</th>
-            <th>To</th>
-            <th>Reason</th>
-            <th>Approval</th>
-        </tr>
-        <tr ng-repeat="x in names">
-            <td>{{x.uname}}</td>
-            <td>{{x.type}}</td>
-            <td>{{x.num_day}}</td>
-            <td>{{x.from_date}}</td>
-            <td>{{x.to_date}}</td>
-            <td>{{x.comment}}</td>
-            <td>{{x.approval}}</td>
-        </tr>
-    </table>
+<div>
+    <div id="title">
+        <h2><img src="./img/logo.png">E-TOKK TECHNICAL TRAINING INSTITUTE<img src="./img/logo.png"></h2>
+    </div>
+
+    <div class="tabs">
+        <div id="user">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome {{user}} <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="">Profile</a></li>
+                    <li><a href="">Grades</a></li>
+                    <li><a href="">Settings</a></li>
+                    <li><a href="" ng-click="gotoLogout()">Logout</a></li>
+                </ul>
+            </li>
+        </div>
+        <div class="col-md-2">
+            <ul class="nav nav-pills nav-stacked">
+                <li ng-class="{ active: isSet(1) }">
+                    <a href ng-click="setTab(1)">Home</a>
+                </li>
+                <li ng-class="{ active: isSet(2) }">
+                    <a href ng-click="setTab(2)">Modules</a>
+                </li>
+                <li ng-class="{ active: isSet(3) }">
+                    <a href ng-click="setTab(3)">Apply Leave</a>
+                </li>
+                <li ng-class="{ active: isSet(4) }">
+                    <a href ng-click="setTab(4)">Leaves Applied</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-8">
+            <div class="jumbotron">
+                <div ng-show="isSet(1)">
+                    <h1>Home Page</h1>
+                    <p>Welcome to <img src="./img/logo.png"> Technical Training Institute!</p>
+                    <!--<p> <a class="btn btn-primary btn-lg" role="button">Learn more</a></p>-->
+                </div>
+                <div ng-show="isSet(2)">
+                    <h1>Submissions</h1>
+                    <p>Submit your assignments</p>
+
+                    <div class="form-group">
+                        <label for="exampleInputFile">File upload</label>
+                        <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+                        <small id="fileHelp" class="form-text text-muted">Upload your file here</small>
+                    </div>
+                    <p><a class="btn btn-primary btn-lg" role="button">Upload</a></p>
+                </div>
+                <div ng-show="isSet(3)">
+                    <h1>Apply Leave</h1>
+                    <p>Submit Leave Application </p>
+                    <div class="form-group">
+                        <label for="Id">User ID</label>
+                        <input type="text" name="Id" ng-model="Id" class="form-control" id="Id" placeholder="Enter User Id">
+                        <!--<input type="text" class="form-control" ng-model="firstname" name="f_name" id="fname" placeholder="Enter Fullname">-->
+                    </div>
+                    <div class="form-group">
+                        <label for="numofdays">Leave days</label>
+                        <input type="number" name="numofdays" ng-model="numofdays" class="form-control" id="numofdays" placeholder="Enter number of leave days">
+                        <!--<input type="text" class="form-control" ng-model="firstname" name="f_name" id="fname" placeholder="Enter Fullname">-->
+                    </div>
+                    <div class="form-group">
+                        <label for="from">From:</label>
+                        <input type="date" class="form-control" id="from" ng-model="from" placeholder="from" required>
+                        <label for="to">To:</label>
+                        <input type="date" class="form-control" id="to" ng-model="to" placeholder="to" required>
+                    </div>
+                    <fieldset class="form-group">
+                        <label>Type of Leave</label>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="optionsRadios" ng-model="leavetype" id="optionsRadios1" value="Casual Leave" checked="">
+                                Casual Leave
+                            </label>
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="optionsRadios" ng-model="leavetype" id="optionsRadios2" value="Annual Leave" >
+                                Annual Leave
+                            </label>
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="optionsRadios" ng-model="leavetype" id="optionsRadios3" value="Medical Leave" >
+                                Medical Leave
+                            </label>
+                        </div>
+
+                    </fieldset>
+                    <div class="form-group">
+                        <label for="reason">Reason</label>
+                        <textarea class="form-control" id="reason" ng-model="reason" rows="3" required></textarea>
+                    </div>
+                    <p><a class="btn btn-primary btn-lg" role="button" ng-click="insertData()">Submit</a></p>
+                </div>
+                <div ng-show="isSet(4)">
+                    <div ng-init="getdata()">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>User ID</th>
+                                <th>Type of Leave</th>
+                                <th>Number of Leave Days</th>
+                                <th>From</th>
+                                <th>To</th>
+                                <th>Reason</th>
+                                <th>Approval</th>
+                            </tr>
+                            <tr ng-repeat="x in names">
+                                <td>{{x.uname}}</td>
+                                <td>{{x.type}}</td>
+                                <td>{{x.num_day}}</td>
+                                <td>{{x.from_date}}</td>
+                                <td>{{x.to_date}}</td>
+                                <td>{{x.comment}}</td>
+                                <td><button type="submit" class="btn btn-primary" name="btnInsert" ng-click="" style="margin:5px;">Approve  </button>
+                                    <button type="submit" class="btn btn-primary" name="btnInsert" ng-click="">Disapprove</button></td>
+                            </tr>
+                        </table>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="bottom">
+        <div id="foot">
+            <div id="footimg">
+                <a href=""><img src="./img/map.jpg"></a>
+            </div>
+            <div id="condetails">
+                <h3>E-TOKK TECHNICAL</h3>
+                <h4>582, Galle Road, Mount Lavinia, Sri Lanka.</h4>
+                <h4>+94712251841</h4>
+                <h4>etokk@sltnet.lk</h4>
+            </div>
+        </div>
+    </div>
+
 </div>

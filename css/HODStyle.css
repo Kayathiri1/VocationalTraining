@@ -1,8 +1,10 @@
-.table{
+.table {
     color: white;
+    font-size: 15px;
 }
-.selected{
-    background-color:black;
-    color:white;
+
+.selected {
+    background-color: black;
+    color: white;
     font-weight: bold;
 }
